@@ -8,11 +8,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+<!-- <link rel="stylesheet" href="index.js"> -->
 </head>
 <body>
     <div class="container">
         <div class="mainbox">
-            <div class="displayTime">00 : 00 : 00 : 00</div>
+            <div id="getTime" class="displayTime">00 : 00 : 00 : 00</div>
         </div>
         <div class="buttons">
             <button type="button" class="btn" style="--clr:red;" id="btn1" onclick="stopBtn()">Stop</button>
@@ -20,7 +21,6 @@
             <button type="button" class="btn"  style="--clr:blue;" id="btn3" onclick="resetBtn()">Reset</button>
         </div>
     </div>
-
-    <style src="index.js"></style>
+    <script src="index.js"></script>
 </body>
 </html>
