@@ -16,6 +16,15 @@ body{
     min-height: 100vh;
 }
 
+.setInputTimer {
+    padding: 0.7rem;
+    border-radius: 1rem;
+    border: 2px solid orange;
+    background-color: black;
+    color: white;
+    margin-bottom: 2rem ;
+}
+
 .mainbox{
     padding: 1.5rem 2.3rem;
     background-color: black;
