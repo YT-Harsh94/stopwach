@@ -3,8 +3,16 @@
 // let btn2 = document.getElementById('btn2');
 // let btn3 = document.getElementById('btn3');
 let displayTime = document.getElementById("getTime");
-console.log(displayTime)
+console.log(displayTime);
 let timer = null;
+let inputTimer = document.getElementById("getInputTimer");
+let timerValue = null;
+
+function setTimer(){
+  var inputTimerValue = inputTimer.value;
+  timerValue = inputTimerValue < 10 ? "0" + inputTimerValue : inputTimerValue;
+  startBtn()
+}
 
 let [msec, sec, min, hrs] = [0, 0, 0, 0];
 
@@ -22,26 +30,33 @@ function stopWatch() {
       }
     }
   }
- let h = hrs < 10 ? "0" + hrs : hrs
- let m = min < 10 ? "0" + min : min
- let s = sec < 10 ? "0" + sec : sec
- let ms = msec < 10 ? "0" + msec : msec
 
-  displayTime.innerHTML = h + ":" + m + ":" + s + ":" + ms;
+  let hours = hrs < 10 ? "0" + hrs : hrs;
+  var minutes = min < 10 ? "0" + min : min;
+  let seconds = sec < 10 ? "0" + sec : sec;
+  let miliseconds = msec < 10 ? "0" + msec : msec;
+  
+  if(minutes == timerValue){
+    stopBtn();
+  }
+
+  displayTime.innerHTML =
+    hours + ":" + minutes + ":" + seconds + ":" + miliseconds;
 }
 
 function startBtn() {
   if (timer != null) {
     clearInterval(timer);
   }
-  timer = setInterval(stopWatch,10);  
+  timer = setInterval(stopWatch, 10);
 }
 
-function stopBtn(){
-    clearInterval(timer)
+function stopBtn() {
+  inputTimer.value = "";
+  clearInterval(timer);
 }
-function resetBtn(){
-    clearInterval(timer);
-    [msec, sec, min, hrs] = [0, 0, 0, 0];
-    displayTime.innerHTML = "00 : 00 : 00 : 00";
+function resetBtn() {
+  clearInterval(timer);
+  [msec, sec, min, hrs] = [0, 0, 0, 0];
+  displayTime.innerHTML = "00 : 00 : 00 : 00";
 }
