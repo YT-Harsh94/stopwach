@@ -7,6 +7,8 @@ console.log(displayTime);
 let timer = null;
 let inputTimer = document.getElementById("getInputTimer");
 let timerValue = null;
+let myAudio = document.querySelector('#audio')
+let myEndAudio = document.querySelector("#myEndAudio")
 
 function setTimer(){
   var inputTimerValue = inputTimer.value;
@@ -30,13 +32,14 @@ function stopWatch() {
       }
     }
   }
-
+  
+  myAudio.play();
   let hours = hrs < 10 ? "0" + hrs : hrs;
   var minutes = min < 10 ? "0" + min : min;
   let seconds = sec < 10 ? "0" + sec : sec;
   let miliseconds = msec < 10 ? "0" + msec : msec;
   
-  if(minutes == timerValue){
+  if(seconds == timerValue){
     stopBtn();
   }
 
@@ -54,8 +57,13 @@ function startBtn() {
 function stopBtn() {
   inputTimer.value = "";
   clearInterval(timer);
+  myAudio.pause()
+  myEndAudio.play()
+
 }
 function resetBtn() {
+  myAudio.pause()
+  myEndAudio.pause()
   clearInterval(timer);
   [msec, sec, min, hrs] = [0, 0, 0, 0];
   displayTime.innerHTML = "00 : 00 : 00 : 00";
