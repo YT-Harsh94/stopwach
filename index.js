@@ -39,7 +39,7 @@ function stopWatch() {
   let seconds = sec < 10 ? "0" + sec : sec;
   let miliseconds = msec < 10 ? "0" + msec : msec;
   
-  if(seconds == timerValue){
+  if(minutes == timerValue){
     stopBtn();
   }
 
